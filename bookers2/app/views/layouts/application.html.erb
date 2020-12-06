@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bookers2</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+  </head>
+
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class=container>
+  <div class="navbar-brand">
+    <%= link_to "Bookers", root_path %>
+  </div>
+  <div>
+    <% if user_signed_in? %>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="true" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown" style>
+      <ul class="navbar-nav ml-auto">
+    <li><span class="btn btn-dark btn-lg text-light"><%= link_to "/users/#{current_user.id}" do %><i class="fas fa-home"></i>Home</span><% end %></li>
+    <li><span class="btn btn-dark btn-lg text-light"><%= link_to "/users" do %><i class="fas fa-users"></i>Users</span><% end %></li>
+    <li><span class="btn btn-dark btn-lg text-light"><%= link_to "/books" do %><i class="fas fa-book-open"></i>Books</span><% end %></li>
+    <li><span class="btn btn-dark btn-lg text-light"><%= link_to "/users/sign_out", method: :delete do %><i class="fas fa-sign-out-alt"></i>logout</span><% end %></li>
+      </ul>
+    </div>
+  </div>
+
+    <% else %>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="true" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" style>
+      <ul class="navbar-nav ml-auto">
+    <li><span class="btn btn-dark btn-lg"><%= link_to "/" do %><i class="fas fa-home"></i>Home</span><% end %></li>
+    <li><span class="btn btn-dark btn-lg"><%= link_to "/home/about" do %><i class="fas fa-link fa-book"></i>about</span><% end %></li>
+    <li><span class="btn btn-dark btn-lg"><%= link_to "/users/sign_up" do %><i class="fas fa-user-plus"></i>sign up</span><% end %></li>
+    <li><span class="btn btn-dark btn-lg"><%= link_to "/users/sign_in" do %><i class="fas fa-sign-in-alt"></i>login</span><% end %></li>
+      </ul>
+    </div>
+  </div>
+    <% end %>
+  </div>
+  </div>
+  </nav>
+</header>
+<body>
+  <main>
+  <p id="notice"></p>
+  <div class="container px-5 px-sm-0" >
+  <%= yield %>
+  </div>
+  </main>
+<footer>
+<div class="cantainer mt-5">
+  <div class="row">
+    <div class="mx-auto">
+  CopyRight Infratop.inc
+</div>
+  </div>
+    </div>
+</footer>
+
+</body>
+</html>
