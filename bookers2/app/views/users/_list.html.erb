@@ -9,7 +9,7 @@
 <h2>User info</h2>
 <table class="table">
   <tbody>
-      <tr><td><%= attachment_image_tag user, :profile_image, fallback: "no-image.png", size: "60x60", format: "jpg" %></td></tr>
+      <tr><td><%= attachment_image_tag user, :profile_image, fallback: "no-image.png", size: "60x60", format: "png" %></td></tr>
       <tr><td>name</td><td><%= user.name %></td></tr>
       <tr><td>introduction</td><td><%= user.introduction %></td></tr>
   </tbody>
